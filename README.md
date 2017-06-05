@@ -1,7 +1,7 @@
 semantic-password-generator
 ===========================
 
-Generate secure password that you can easily read 🔒💬
+Generate secure passwords that you can easily read 🔒💬
 
 ### Install
 
