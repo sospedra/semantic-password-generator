@@ -2,7 +2,7 @@
   "name": "semantic-password-generator",
   "version": "3.0.0",
   "description": "Generate secure password that you can easly read",
-  "main": "dist/bundle.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,12 +13,5 @@
     "compromise": "^10.5.0",
     "ent": "^2.2.0",
     "lodash.random": "^3.2.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.2",
-    "babel-preset-es2015": "^6.24.1",
-    "webpack": "^2.6.1"
   }
 }
