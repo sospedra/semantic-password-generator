@@ -95,6 +95,35 @@ module.exports = g;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -109,7 +138,7 @@ module.exports = g;
 
 
 var base64 = __webpack_require__(32)
-var ieee754 = __webpack_require__(37)
+var ieee754 = __webpack_require__(36)
 var isArray = __webpack_require__(12)
 
 exports.Buffer = Buffer
@@ -1891,35 +1920,6 @@ function isnan (val) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
-}
-
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
@@ -2139,7 +2139,7 @@ var processNextTick = __webpack_require__(8);
 
 /*<replacement>*/
 var util = __webpack_require__(5);
-util.inherits = __webpack_require__(2);
+util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 var Readable = __webpack_require__(14);
@@ -2302,21 +2302,18 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var MAX = 100;
-var DEFAULT_RATIO = MAX / 2;
-var WEIRD_RATIO = 10;
-var LOW_RATIO = 4;
-var HIGH_RATIO = 1 + 1 / 3;
-var COMMON_RATIO = 1 + 1 / 9;
+const MAX = 100
+const DEFAULT_RATIO = MAX / 2
+const WEIRD_RATIO = 10
+const LOW_RATIO = 4
+const HIGH_RATIO = 1 + 1 / 3
+const COMMON_RATIO = 1 + 1 / 9
 
 /**
  * Given a probabilistic ratio match against a random number to get a true/false.
@@ -2325,29 +2322,20 @@ var COMMON_RATIO = 1 + 1 / 9;
  * @param  {Number} [ratio=50]
  * @return {Bool}
  */
-var shall = function shall() {
-  var ratio = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_RATIO;
-
-  return Math.random() * MAX < Math.min(ratio, MAX);
-};
+const shall = function shall (ratio = DEFAULT_RATIO) {
+  return Math.random() * MAX < Math.min(ratio, MAX)
+}
 
 /**
  * Expose 4 common probabilistic types. For 10%, 25%, 75% and 90%
  */
-shall.weird = function () {
-  return this(MAX / WEIRD_RATIO);
-};
-shall.low = function () {
-  return this(MAX / LOW_RATIO);
-};
-shall.high = function () {
-  return this(MAX / HIGH_RATIO);
-};
-shall.common = function () {
-  return this(MAX / COMMON_RATIO);
-};
+shall.weird = function () { return this(MAX / WEIRD_RATIO) }
+shall.low = function () { return this(MAX / LOW_RATIO) }
+shall.high = function () { return this(MAX / HIGH_RATIO) }
+shall.common = function () { return this(MAX / COMMON_RATIO) }
 
-module.exports = shall;
+module.exports = shall
+
 
 /***/ }),
 /* 7 */
@@ -2866,7 +2854,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1)
+module.exports = __webpack_require__(2)
 
 
 /***/ }),
@@ -17189,7 +17177,7 @@ var Buffer = __webpack_require__(9).Buffer;
 
 /*<replacement>*/
 var util = __webpack_require__(5);
-util.inherits = __webpack_require__(2);
+util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -17202,7 +17190,7 @@ if (debugUtil && debugUtil.debuglog) {
 }
 /*</replacement>*/
 
-var BufferList = __webpack_require__(42);
+var BufferList = __webpack_require__(43);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -18144,7 +18132,7 @@ var Duplex = __webpack_require__(4);
 
 /*<replacement>*/
 var util = __webpack_require__(5);
-util.inherits = __webpack_require__(2);
+util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 util.inherits(Transform, Duplex);
@@ -18306,7 +18294,7 @@ Writable.WritableState = WritableState;
 
 /*<replacement>*/
 var util = __webpack_require__(5);
-util.inherits = __webpack_require__(2);
+util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -18825,7 +18813,7 @@ function CorkedRequest(state) {
     }
   };
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(47).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(38).setImmediate))
 
 /***/ }),
 /* 17 */
@@ -18844,7 +18832,7 @@ exports.Readable = exports;
 exports.Writable = __webpack_require__(16);
 exports.Duplex = __webpack_require__(4);
 exports.Transform = __webpack_require__(15);
-exports.PassThrough = __webpack_require__(41);
+exports.PassThrough = __webpack_require__(42);
 
 
 /***/ }),
@@ -18948,7 +18936,7 @@ xhr = null // Help gc
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-var Buffer = __webpack_require__(1).Buffer;
+var Buffer = __webpack_require__(2).Buffer;
 
 var isBufferEncoding = Buffer.isEncoding
   || function(encoding) {
@@ -19154,118 +19142,114 @@ function base64DetectIncompleteChar(buffer) {
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+const nlp = __webpack_require__(10)
+const request = __webpack_require__(25)
+const generator = __webpack_require__(23)
 
+module.exports = function main () {
+  return new Promise((resolve, reject) => {
+    request()
+      .catch((err) => reject(err))
+      .then((article) => {
+        const doc = nlp(article)
+        const sentences = doc.sentences().out('array')
 
-var nlp = __webpack_require__(10);
-var request = __webpack_require__(25);
-var generator = __webpack_require__(23);
+        resolve(generator(sentences))
+      })
+  })
+}
 
-module.exports = function main() {
-  return new Promise(function (resolve, reject) {
-    request().catch(function (err) {
-      return reject(err);
-    }).then(function (article) {
-      var doc = nlp(article);
-      var sentences = doc.sentences().out('array');
-
-      resolve(generator(sentences));
-    });
-  });
-};
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-module.exports = __webpack_require__(21
+module.exports = __webpack_require__(21)
+console.log('')
 // support es6 modules default import
-);module.exports.default = module.exports;
+module.exports.default = module.exports
+
 
 /***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+const random = __webpack_require__(7)
+const password = __webpack_require__(24)
+const transformNormalize = __webpack_require__(29)
+const transformLength = __webpack_require__(28)
+const transformLeet = __webpack_require__(27)
+const transformCase = __webpack_require__(26)
+const transformRandom = __webpack_require__(30)
+const transformSymbols = __webpack_require__(31)
 
+const LENGTH_DEFAULT = 24
 
-var random = __webpack_require__(7);
-var password = __webpack_require__(24);
-var transformNormalize = __webpack_require__(29);
-var transformLength = __webpack_require__(28);
-var transformLeet = __webpack_require__(27);
-var transformCase = __webpack_require__(26);
-var transformRandom = __webpack_require__(30);
-var transformSymbols = __webpack_require__(31);
+module.exports = (sentences) => {
+  const maxLength = password.getMaxLength(sentences)
 
-var LENGTH_DEFAULT = 24;
+  return function generator (inputLength = LENGTH_DEFAULT) {
+    const length = password.getLength(inputLength, maxLength)
+    const data = sentences.filter((x) => x.length >= length)
+    const base = data[random(data.length - 1)]
 
-module.exports = function (sentences) {
-  var maxLength = password.getMaxLength(sentences);
+    if (!base) return null
 
-  return function generator() {
-    var inputLength = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : LENGTH_DEFAULT;
+    return [
+      transformNormalize(),
+      transformLength(length),
+      transformLeet(),
+      transformCase(),
+      transformRandom(),
+      transformSymbols()
+    ].reduce((memo, fn) => fn(memo), base)
+  }
+}
 
-    var length = password.getLength(inputLength, maxLength);
-    var data = sentences.filter(function (x) {
-      return x.length >= length;
-    });
-    var base = data[random(data.length - 1)];
-
-    if (!base) return null;
-
-    return [transformNormalize(), transformLength(length), transformLeet(), transformCase(), transformRandom(), transformSymbols()].reduce(function (memo, fn) {
-      return fn(memo);
-    }, base);
-  };
-};
 
 /***/ }),
 /* 24 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+const MIN_PASSWORD_LENGTH = 8
 
+const password = module.exports = {}
 
-var MIN_PASSWORD_LENGTH = 8;
+password.getMaxLength = (sentences) => {
+  return sentences
+    .concat() // for immutability reasons
+    .sort((a, b) => b.length - a.length)
+    .find(() => true) // return the first element
+    .length
+}
 
-var password = module.exports = {};
+password.getMinLength = (inputLength) => {
+  return Math.max(inputLength, MIN_PASSWORD_LENGTH)
+}
 
-password.getMaxLength = function (sentences) {
-  return sentences.concat // for immutability reasons
-  ().sort(function (a, b) {
-    return b.length - a.length;
-  }).find(function () {
-    return true;
-  } // return the first element
-  ).length;
-};
+password.getLength = (inputLength, maxLength) => {
+  return Math.min(password.getMinLength(inputLength), maxLength)
+}
 
-password.getMinLength = function (inputLength) {
-  return Math.max(inputLength, MIN_PASSWORD_LENGTH);
-};
-
-password.getLength = function (inputLength, maxLength) {
-  return Math.min(password.getMinLength(inputLength), maxLength);
-};
 
 /***/ }),
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Buffer) {
+/* WEBPACK VAR INJECTION */(function(Buffer) {const https = __webpack_require__(37)
+const decode = __webpack_require__(34)
 
-var https = __webpack_require__(36);
-var decode = __webpack_require__(34);
-
-var RX_HTML_TAGS = /<\/?[^>]+(>|$)/g;
-var RX_BASIC_ASCII = /[^\x20-\xFF]/g;
-var WIKI_ROOT = 'https://en.wikipedia.org/w/api.php?action=query';
-var WIKI_RANDOM_PATH = ['generator=random', 'grnnamespace=0', 'prop=extracts', 'exchars=500', 'format=json', 'origin=*'].join('&'
+const RX_HTML_TAGS = /<\/?[^>]+(>|$)/g
+const RX_BASIC_ASCII = /[^\x20-\xFF]/g
+const WIKI_ROOT = 'https://en.wikipedia.org/w/api.php?action=query'
+const WIKI_RANDOM_PATH = [
+  'generator=random',
+  'grnnamespace=0',
+  'prop=extracts',
+  'exchars=500',
+  'format=json',
+  'origin=*'
+].join('&')
 
 /**
  * Trasnform the response's chunks into a JSON and then
@@ -19275,47 +19259,43 @@ var WIKI_RANDOM_PATH = ['generator=random', 'grnnamespace=0', 'prop=extracts', '
  * @param  {Array} chunks - Response's buffer pieces
  * @return {String} Sanitized Wikipedia extract
  */
-);var bufferToString = function bufferToString(chunks) {
-  var raw = Buffer.concat(chunks).toString();
-  var payload = JSON.parse(raw);
-  var pages = payload.query.pages;
-  var extract = pages[Object.keys(pages)[0]].extract;
+const bufferToString = (chunks) => {
+  const raw = Buffer.concat(chunks).toString()
+  const payload = JSON.parse(raw)
+  const { pages } = payload.query
+  const { extract } = pages[Object.keys(pages)[0]]
 
-
-  return decode(extract.replace(RX_HTML_TAGS, '').replace(RX_BASIC_ASCII, ''));
-};
+  return decode(extract
+    .replace(RX_HTML_TAGS, '')
+    .replace(RX_BASIC_ASCII, ''))
+}
 
 /**
  * Request a random Wikipedia article
  * @return {String} Sanitized article description
  */
-module.exports = function () {
-  return new Promise(function (resolve, reject) {
-    https.get(WIKI_ROOT + '&' + WIKI_RANDOM_PATH, function (response) {
-      var bodyChunks = [];
-      var statusCode = response.statusCode;
-      statusCode >= 400 && reject(new Error('Request failed. Code: ' + statusCode));
+module.exports = () => {
+  return new Promise((resolve, reject) => {
+    https.get(`${WIKI_ROOT}&${WIKI_RANDOM_PATH}`, (response) => {
+      const bodyChunks = []
+      const { statusCode } = response
 
-      response.on('data', function (chunk) {
-        return bodyChunks.push(chunk);
-      }).on('end', function () {
-        return resolve(bufferToString(bodyChunks));
-      });
-    }).on('error', function (err) {
-      return reject(err);
-    });
-  });
-};
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer))
+      ;(statusCode >= 400) && reject(new Error(`Request failed. Code: ${statusCode}`))
+
+      response
+        .on('data', (chunk) => bodyChunks.push(chunk))
+        .on('end', () => resolve(bufferToString(bodyChunks)))
+    }).on('error', (err) => reject(err))
+  })
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer))
 
 /***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var shall = __webpack_require__(6
+const shall = __webpack_require__(6)
 
 /**
  * Randomly transform to upper case some chars. It assumes that most
@@ -19324,26 +19304,23 @@ var shall = __webpack_require__(6
  * @param  {String} base
  * @return {String}
  */
-);module.exports = function () {
-  return function transformCase(base) {
-    return base.split('').map(function (char) {
-      return shall.low() ? char.toUpperCase() : char;
-    }).join('');
-  };
-};
+module.exports = () => {
+  return function transformCase (base) {
+    return base
+      .split('')
+      .map((char) => shall.low() ? char.toUpperCase() : char)
+      .join('')
+  }
+}
+
 
 /***/ }),
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+const shall = __webpack_require__(6)
 
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var shall = __webpack_require__(6);
-
-var LEET_DICT = {
+const LEET_DICT = {
   'a': 4,
   'b': 8,
   'e': 3,
@@ -19353,37 +19330,30 @@ var LEET_DICT = {
   's': 5,
   't': 7,
   'z': 2
+}
 
-  /**
-   * Randomly replace some char by the leet equivalent if any.
-   *
-   * @param  {String} base
-   * @return {String}
-   */
-};module.exports = function () {
-  return function transformLeet(base) {
-    return base.split('').map(function (char) {
-      return [char, LEET_DICT[char.toLowerCase()]];
-    }).map(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          char = _ref2[0],
-          leet = _ref2[1];
+/**
+ * Randomly replace some char by the leet equivalent if any.
+ *
+ * @param  {String} base
+ * @return {String}
+ */
+module.exports = () => {
+  return function transformLeet (base) {
+    return base
+      .split('')
+      .map((char) => [char, LEET_DICT[char.toLowerCase()]])
+      .map(([char, leet]) => (leet && shall.weird()) ? leet : char)
+      .join('')
+  }
+}
 
-      return leet && shall.weird() ? leet : char;
-    }).join('');
-  };
-};
 
 /***/ }),
 /* 28 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var DEFAULT_WORD_MAP = [0, 0];
+const DEFAULT_WORD_MAP = [0, 0]
 
 /**
  * Given a desired length break the sentence with the minimum required words.
@@ -19391,38 +19361,28 @@ var DEFAULT_WORD_MAP = [0, 0];
  * @param  {String} base
  * @return {String}
  */
-module.exports = function (length) {
-  return function transformLength(base) {
-    var words = base.split(' ');
-    var breakingWord = words.map(function (word) {
-      return [word, word.length];
-    }).reduce(function (memo, _ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-          word = _ref2[0],
-          wordLength = _ref2[1];
+module.exports = (length) => {
+  return function transformLength (base) {
+    const words = base.split(' ')
+    const breakingWord = words
+      .map((word) => [word, word.length])
+      .reduce((memo, [word, wordLength]) => {
+        const lastWordMap = memo[memo.length - 1] || DEFAULT_WORD_MAP
+        return memo.concat([[word, wordLength + lastWordMap[1]]])
+      }, [])
+      .filter(([word, stack]) => stack < length)
+      .length
 
-      var lastWordMap = memo[memo.length - 1] || DEFAULT_WORD_MAP;
-      return memo.concat([[word, wordLength + lastWordMap[1]]]);
-    }, []).filter(function (_ref3) {
-      var _ref4 = _slicedToArray(_ref3, 2),
-          word = _ref4[0],
-          stack = _ref4[1];
+    return words.slice(0, breakingWord + 1).join(' ')
+  }
+}
 
-      return stack < length;
-    }).length;
-
-    return words.slice(0, breakingWord + 1).join(' ');
-  };
-};
 
 /***/ }),
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-var nlp = __webpack_require__(10
+const nlp = __webpack_require__(10)
 
 /**
  * Remove non latin chars, etc. That'll cause problems with non-specific
@@ -19431,31 +19391,29 @@ var nlp = __webpack_require__(10
  * @param  {String} base
  * @return {String}
  */
-);module.exports = function () {
-  return function transformNormalize(base) {
-    return nlp(base).normalize().out();
-  };
-};
+module.exports = () => {
+  return function transformNormalize (base) {
+    return nlp(base).normalize().out()
+  }
+}
+
 
 /***/ }),
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+const random = __webpack_require__(7)
+const shall = __webpack_require__(6)
 
+const ASCII_LOWER = 37
+const ASCII_HIGHER = 126
+const EMPTY_CHAR = ''
 
-var random = __webpack_require__(7);
-var shall = __webpack_require__(6);
+const addRandomChar = () => {
+  if (shall.common()) return EMPTY_CHAR
 
-var ASCII_LOWER = 37;
-var ASCII_HIGHER = 126;
-var EMPTY_CHAR = '';
-
-var addRandomChar = function addRandomChar() {
-  if (shall.common()) return EMPTY_CHAR;
-
-  return String.fromCharCode(random(ASCII_LOWER, ASCII_HIGHER));
-};
+  return String.fromCharCode(random(ASCII_LOWER, ASCII_HIGHER))
+}
 
 /**
  * Randomly add some ASCII safe chars either at the beginning, the end or both
@@ -19464,27 +19422,26 @@ var addRandomChar = function addRandomChar() {
  * @param  {String} base
  * @return {String}
  */
-module.exports = function () {
-  return function transformRandom(base) {
-    return base.split(' ').map(function (word) {
-      return '' + addRandomChar() + word + addRandomChar();
-    }).join(' ');
-  };
-};
+module.exports = () => {
+  return function transformRandom (base) {
+    return base
+      .split(' ')
+      .map((word) => `${addRandomChar()}${word}${addRandomChar()}`)
+      .join(' ')
+  }
+}
+
 
 /***/ }),
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+const random = __webpack_require__(7)
+const shall = __webpack_require__(6)
 
-
-var random = __webpack_require__(7);
-var shall = __webpack_require__(6);
-
-var SYMBOLS = '@#$%{}[]()/~,;:.><'.split('');
-var EMPTY_CHAR = '';
-var RX_WHITE_SPACE = / /g;
+const SYMBOLS = '@#$%{}[]()/~,;:.><'.split('')
+const EMPTY_CHAR = ''
+const RX_WHITE_SPACE = / /g
 
 /**
  * Replace white spaces either by a random symbol or an empty char (remove).
@@ -19494,13 +19451,16 @@ var RX_WHITE_SPACE = / /g;
  * @param  {String} base
  * @return {String}
  */
-module.exports = function () {
-  return function transformSymbols(base) {
-    return base.replace(RX_WHITE_SPACE, function () {
-      return shall() ? SYMBOLS[random(SYMBOLS.length - 1)] : EMPTY_CHAR;
-    });
-  };
-};
+module.exports = () => {
+  return function transformSymbols (base) {
+    return base.replace(RX_WHITE_SPACE, () => {
+      return shall()
+        ? SYMBOLS[random(SYMBOLS.length - 1)]
+        : EMPTY_CHAR
+    })
+  }
+}
+
 
 /***/ }),
 /* 32 */
@@ -21971,26 +21931,6 @@ module.exports = {
 
 /***/ }),
 /* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var http = __webpack_require__(44);
-
-var https = module.exports;
-
-for (var key in http) {
-    if (http.hasOwnProperty(key)) https[key] = http[key];
-};
-
-https.request = function (params, cb) {
-    if (!params) params = {};
-    params.scheme = 'https';
-    params.protocol = 'https:';
-    return http.request.call(this, params, cb);
-}
-
-
-/***/ }),
-/* 37 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -22080,7 +22020,86 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var http = __webpack_require__(45);
+
+var https = module.exports;
+
+for (var key in http) {
+    if (http.hasOwnProperty(key)) https[key] = http[key];
+};
+
+https.request = function (params, cb) {
+    if (!params) params = {};
+    params.scheme = 'https';
+    params.protocol = 'https:';
+    return http.request.call(this, params, cb);
+}
+
+
+/***/ }),
 /* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var apply = Function.prototype.apply;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) {
+  if (timeout) {
+    timeout.close();
+  }
+};
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(window, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// setimmediate attaches itself to the global object
+__webpack_require__(44);
+exports.setImmediate = setImmediate;
+exports.clearImmediate = clearImmediate;
+
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22171,7 +22190,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22263,18 +22282,18 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(38);
-exports.encode = exports.stringify = __webpack_require__(39);
+exports.decode = exports.parse = __webpack_require__(39);
+exports.encode = exports.stringify = __webpack_require__(40);
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22290,7 +22309,7 @@ var Transform = __webpack_require__(15);
 
 /*<replacement>*/
 var util = __webpack_require__(5);
-util.inherits = __webpack_require__(2);
+util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 util.inherits(PassThrough, Transform);
@@ -22306,7 +22325,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 };
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22376,7 +22395,7 @@ BufferList.prototype.concat = function (n) {
 };
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -22569,10 +22588,10 @@ BufferList.prototype.concat = function (n) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(3)))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(45)
+/* WEBPACK VAR INJECTION */(function(global) {var ClientRequest = __webpack_require__(46)
 var extend = __webpack_require__(53)
 var statusCodes = __webpack_require__(33)
 var url = __webpack_require__(49)
@@ -22654,12 +22673,12 @@ http.METHODS = [
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer, global, process) {var capability = __webpack_require__(19)
-var inherits = __webpack_require__(2)
-var response = __webpack_require__(46)
+var inherits = __webpack_require__(1)
+var response = __webpack_require__(47)
 var stream = __webpack_require__(18)
 var toArrayBuffer = __webpack_require__(48)
 
@@ -22964,14 +22983,14 @@ var unsafeHeaders = [
 	'via'
 ]
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1).Buffer, __webpack_require__(0), __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2).Buffer, __webpack_require__(0), __webpack_require__(3)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, Buffer, global) {var capability = __webpack_require__(19)
-var inherits = __webpack_require__(2)
+var inherits = __webpack_require__(1)
 var stream = __webpack_require__(18)
 
 var rStates = exports.readyStates = {
@@ -23006,7 +23025,7 @@ var IncomingMessage = exports.IncomingMessage = function (xhr, response, mode) {
 		self.url = response.url
 		self.statusCode = response.status
 		self.statusMessage = response.statusText
-		
+
 		response.headers.forEach(function(header, key){
 			self.headers[key.toLowerCase()] = header
 			self.rawHeaders.push(key, header)
@@ -23094,7 +23113,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 				self.push(new Buffer(response))
 				break
 			}
-			// Falls through in IE8	
+			// Falls through in IE8
 		case 'text':
 			try { // This will fail when readyState = 3 in IE9. Switch mode and wait for readyState = 4
 				response = xhr.responseText
@@ -23153,72 +23172,13 @@ IncomingMessage.prototype._onXHRProgress = function () {
 	}
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(1).Buffer, __webpack_require__(0)))
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var apply = Function.prototype.apply;
-
-// DOM APIs, for completeness
-
-exports.setTimeout = function() {
-  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
-};
-exports.setInterval = function() {
-  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
-};
-exports.clearTimeout =
-exports.clearInterval = function(timeout) {
-  if (timeout) {
-    timeout.close();
-  }
-};
-
-function Timeout(id, clearFn) {
-  this._id = id;
-  this._clearFn = clearFn;
-}
-Timeout.prototype.unref = Timeout.prototype.ref = function() {};
-Timeout.prototype.close = function() {
-  this._clearFn.call(window, this._id);
-};
-
-// Does not start the time, just sets up the members needed.
-exports.enroll = function(item, msecs) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = msecs;
-};
-
-exports.unenroll = function(item) {
-  clearTimeout(item._idleTimeoutId);
-  item._idleTimeout = -1;
-};
-
-exports._unrefActive = exports.active = function(item) {
-  clearTimeout(item._idleTimeoutId);
-
-  var msecs = item._idleTimeout;
-  if (msecs >= 0) {
-    item._idleTimeoutId = setTimeout(function onTimeout() {
-      if (item._onTimeout)
-        item._onTimeout();
-    }, msecs);
-  }
-};
-
-// setimmediate attaches itself to the global object
-__webpack_require__(43);
-exports.setImmediate = setImmediate;
-exports.clearImmediate = clearImmediate;
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2).Buffer, __webpack_require__(0)))
 
 /***/ }),
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(1).Buffer
+var Buffer = __webpack_require__(2).Buffer
 
 module.exports = function (buf) {
 	// If the buffer is backed by a Uint8Array, a faster version will work
@@ -23351,7 +23311,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(40);
+    querystring = __webpack_require__(41);
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
