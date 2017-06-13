@@ -1,6 +1,6 @@
 {
   "name": "semantic-password-generator",
-  "version": "1.1.1",
+  "version": "4.0.0",
   "description": "Generate secure password that you can easly read",
   "main": "lib/index.js",
   "scripts": {
