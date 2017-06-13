@@ -48,3 +48,48 @@ spg().then((generator) => {
 ```
 
 Notice that internally `spg` ensures a minimum password length of 8. And a maximum as large as the Wikipedia article can provide. If you need less than 8 (~~please don't~~) you can trim it. If you want a larger one you can combine multiple generated passwords.
+
+## Demo
+
+To explore the lib and explore it check out the `/demo` directory. Here's a snapshot of the final component:
+
+```js
+import React from 'react'
+import spg from 'semantic-password-generator'
+
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.renewGenerator()
+    this.state = { password: '' }
+  }
+
+  async renewGenerator () {
+    this.generator = await spg()
+  }
+
+  onClickGenerate () {
+    return () => {
+      if (this.generator) {
+        // always renew the generator to get 100% different passwords
+        this.renewGenerator()
+        // using the current generator create a new one with default values
+        this.setState({
+          password: this.generator()
+        })
+      }
+    }
+  }
+
+  render () {
+    return (
+      <div>
+        <p>{this.state.password}</p>
+        <button onClick={this.onClickGenerate()}>
+          Generate
+        </button>
+      </div>
+    )
+  }
+}
+```
