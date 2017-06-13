@@ -2,9 +2,10 @@
   "name": "semantic-password-generator",
   "version": "1.1.1",
   "description": "Generate secure password that you can easly read",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
   },
   "author": "Ruben Sospedra",
   "license": "MIT",
@@ -12,5 +13,9 @@
     "compromise": "^10.5.0",
     "ent": "^2.2.0",
     "lodash.random": "^3.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2"
   }
 }
