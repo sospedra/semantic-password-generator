@@ -15,14 +15,21 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.5.2"
+    "babel-preset-env": "^1.5.2",
+    "nyc": "^11.0.2"
   },
   "ava": {
-    "source": ["src", "!demo"],
-    "files": ["tests", "!demo/**/*"]
+    "source": [
+      "src",
+      "!demo"
+    ],
+    "files": [
+      "tests",
+      "!demo/**/*"
+    ]
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "ava"
+    "test": "nyc ava"
   }
 }
