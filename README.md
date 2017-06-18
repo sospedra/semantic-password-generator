@@ -6,8 +6,7 @@ semantic-password-generator
 [![Code Climate](https://codeclimate.com/github/sospedra/semantic-password-generator/badges/gpa.svg)](https://codeclimate.com/github/sospedra/semantic-password-generator)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-
-Generate secure passwords that you can easily read 🔒💬
+Secure passwords that humans can read 🔒💬
 
 ### Install
 

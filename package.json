@@ -16,7 +16,8 @@
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.2",
-    "nyc": "^11.0.2"
+    "nyc": "^11.0.2",
+    "standard": "^10.0.2"
   },
   "ava": {
     "source": [
@@ -30,6 +31,9 @@
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "nyc ava"
+    "format": "npm run test:style -- --fix",
+    "test:style": "standard 'src/**/*.js'",
+    "test:unit": "nyc ava",
+    "test": "npm run test:style && npm run test:unit"
   }
 }

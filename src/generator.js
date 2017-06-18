@@ -56,7 +56,7 @@ module.exports = (sentences = DEFAULT_SENTENCES) => {
       options.random && transformRandom(),
       transformSymbols(options.symbols)
     ]
-      .map((fn) => fn ? fn : identity)
+      .map((fn) => fn || identity)
       .reduce((memo, fn) => fn(memo), base)
   }
 }
