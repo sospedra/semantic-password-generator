@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generator takes one arg as number as length 1`] = `"this.is.my.long.sentence.to.try.and.to.check.the.length"`;
+
+exports[`generator transforms with default args when not provided 1`] = `"this.is.my.long.sentence.to.try"`;

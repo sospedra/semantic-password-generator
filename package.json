@@ -3,10 +3,6 @@
   "version": "4.0.1",
   "description": "Generate secure password that you can easly read",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib"
-  },
   "author": "Ruben Sospedra",
   "license": "MIT",
   "dependencies": {
@@ -17,7 +13,16 @@
     "lodash.random": "^3.2.0"
   },
   "devDependencies": {
+    "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.2"
+  },
+  "ava": {
+    "source": ["src", "!demo"],
+    "files": ["tests", "!demo/**/*"]
+  },
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "ava"
   }
 }

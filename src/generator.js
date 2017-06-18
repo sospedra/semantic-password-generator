@@ -10,6 +10,8 @@ const transformCase = require('./transform/case')
 const transformRandom = require('./transform/random')
 const transformSymbols = require('./transform/symbols')
 
+const DEFAULT_SENTENCES = [0] // allows init of all methods
+
 /**
  * Standarized options to set the base sentence and pipe transforms
  * @typedef {Object} Options
@@ -28,14 +30,14 @@ const transformSymbols = require('./transform/symbols')
 const sanitizeOptions = (args) => {
   return Object.assign({}, {
     case: false,
-    length: isNumber(args) || 24,
+    length: isNumber(args) ? args : 24,
     leet: false,
     random: false,
     symbols: false
   }, args)
 }
 
-module.exports = (sentences) => {
+module.exports = (sentences = DEFAULT_SENTENCES) => {
   const maxLength = password.getMaxLength(sentences)
 
   return function generator (args) {
