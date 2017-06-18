@@ -1,6 +1,12 @@
 semantic-password-generator
 ===========================
 
+[![Build Status](https://travis-ci.org/sospedra/semantic-password-generator.svg?branch=master)](https://travis-ci.org/sospedra/semantic-password-generator)
+[![dependencies Status](https://david-dm.org/sospedra/semantic-password-generator/status.svg)](https://david-dm.org/sospedra/semantic-password-generator)
+[![Code Climate](https://codeclimate.com/github/sospedra/semantic-password-generator/badges/gpa.svg)](https://codeclimate.com/github/sospedra/semantic-password-generator)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+
 Generate secure passwords that you can easily read 🔒💬
 
 ### Install
