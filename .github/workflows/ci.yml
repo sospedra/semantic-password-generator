@@ -22,18 +22,12 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        env:
-          CI: true
-
       - name: Bootstrap
         run: yarn bootstrap
-        env:
-          CI: true
-
       - name: Test
         run: yarn test
-        env:
-          CI: true
+      - name: Built
+        run: yarn build
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         run: yarn deploy
