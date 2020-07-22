@@ -35,5 +35,6 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "test": "jest"
-  }
+  },
+  "gitHead": "8a1a7f3be72043bbb8972b582951c5a0e9c68790"
 }

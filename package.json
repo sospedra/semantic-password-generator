@@ -15,5 +15,6 @@
     "deploy": "git subtree push --prefix packages/website/dist origin gh-pages",
     "publish": "lerna publish from-package --yes",
     "version": "lerna version"
-  }
+  },
+  "version": "6.0.1-alpha.1"
 }
