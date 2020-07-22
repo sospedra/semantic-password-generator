@@ -26,7 +26,8 @@ jobs:
         run: yarn bootstrap
       - name: Test
         run: yarn test
-      - name: Built
+      - name: Build
+        if: github.ref == 'refs/heads/master'
         run: yarn build
       - name: Deploy web
         if: github.ref == 'refs/heads/master'
