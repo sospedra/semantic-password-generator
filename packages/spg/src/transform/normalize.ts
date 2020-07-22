@@ -5,7 +5,7 @@ import nlp from 'compromise'
  * keyboard layouts.
  */
 export default () => {
-  return function transformNormalize(base: string) {
+  return function transformNormalize(base: string): string {
     // @ts-ignore The compromise normalize() signature is not correct on @types
     return nlp(base).normalize().out()
   }

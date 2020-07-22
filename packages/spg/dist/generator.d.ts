@@ -6,5 +6,5 @@ declare const DEFAULT_ARGS: {
     symbols: boolean;
 };
 declare type Args = number | typeof DEFAULT_ARGS;
-export default function createGenerator(sentences?: string[]): (args: Args) => string;
+export default function createGenerator(sentences?: string[]): (args?: Args) => any;
 export {};

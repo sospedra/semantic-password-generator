@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch'
+import unfetch from 'unfetch'
 import { decode } from 'ent'
 
 const RX_HTML_TAGS = /<\/?[^>]+(>|$)/g
@@ -13,13 +13,22 @@ const WIKI_RANDOM_PATH = [
   'origin=*',
 ].join('&')
 
+type WikipediaQuery = {
+  query: {
+    pages: {
+      [id: string]: {
+        extract: string
+      }
+    }
+  }
+}
+
 /**
- * Trasnform the response's chunks into a JSON and then
+ * Transform the response's chunks into a JSON and then
  * strip the HTML tags, HTML entities (decode) and non-basic-ascii
  * code (accents allowed) from the payload's extract attr.
  */
-const parse = (raw: string) => {
-  const payload = JSON.parse(raw)
+const parse = (payload: WikipediaQuery) => {
   const { pages } = payload.query
   const { extract } = pages[Object.keys(pages)[0]]
 
@@ -27,8 +36,7 @@ const parse = (raw: string) => {
 }
 
 export default async function request() {
-  const response = await fetch(`${WIKI_ROOT}&${WIKI_RANDOM_PATH}`)
-
+  const response = await unfetch(`${WIKI_ROOT}&${WIKI_RANDOM_PATH}`)
   if (response.status >= 400) {
     new Error(
       `Request failed. Code: ${response.status}. Text: ${response.statusText}`,

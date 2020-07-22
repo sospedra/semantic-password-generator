@@ -1,4 +1,4 @@
-export default function spg(): Promise<(args: number | {
+export default function spg(): Promise<(args?: number | {
     case: boolean;
     length: number;
     leet: boolean;
