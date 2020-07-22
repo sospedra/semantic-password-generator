@@ -8,6 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "yarn lerna run --parallel dev"
+    "dev": "yarn lerna run --parallel dev",
+    "build": "yarn lerna run build",
+    "test": "yarn lerna run --parallel test"
   }
 }

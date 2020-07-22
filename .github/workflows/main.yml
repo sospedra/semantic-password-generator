@@ -26,13 +26,13 @@ jobs:
         env:
           CI: true
 
-      - name: Lint
-        run: yarn lint
+      - name: Bootstrap
+        run: yarn lerna bootstrap
         env:
           CI: true
 
       - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
+        run: yarn test
         env:
           CI: true
 
