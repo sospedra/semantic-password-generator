@@ -14,7 +14,6 @@
     "test": "lerna run --parallel test",
     "deploy:web": "git subtree push --prefix packages/website/dist origin gh-pages",
     "deploy:npm": "lerna publish from-package --yes",
-    "monoversion": "lerna version"
-  },
-  "version": "6.0.1-alpha.1"
+    "bump": "lerna version --conventional-commits --yes"
+  }
 }
