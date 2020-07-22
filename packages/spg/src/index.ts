@@ -6,7 +6,6 @@ export default async function spg() {
   const article = await request()
   const doc = nlp(article)
   const sentences = doc.sentences().out('array')
-  console.log('eo')
 
   return generator(sentences)
 }

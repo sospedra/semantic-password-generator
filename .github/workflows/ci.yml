@@ -44,7 +44,17 @@ jobs:
     needs: build
     if: contains(github.ref, "master")
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+          registry-url: https://registry.npmjs.org
       - name: Deploy
         run: yarn deploy
         env:
           CI: true
+      - name: Publish
+        run: yarn publish
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
