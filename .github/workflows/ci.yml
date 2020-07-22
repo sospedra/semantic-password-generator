@@ -28,11 +28,11 @@ jobs:
         run: yarn test
       - name: Built
         run: yarn build
-      - name: Deploy
+      - name: Deploy web
         if: github.ref == 'refs/heads/master'
-        run: yarn deploy
-      - name: Publish
+        run: yarn deploy:web
+      - name: Deploy npm
         if: github.ref == 'refs/heads/master'
-        run: yarn publish
+        run: yarn deploy:npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
