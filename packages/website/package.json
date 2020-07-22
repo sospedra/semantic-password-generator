@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf dist .cache",
+    "cname": "echo 'spg.sospedra.me' > dist/CNAME",
     "style": "postcss --watch src/css/style.tailwind.css --output src/css/style.css",
     "parcel:build": "parcel build src/index.html --public-url ./",
     "parcel:serve": "parcel src/index.html --open",
-    "build": "npm-run-all -s clean parcel:build",
+    "build": "npm-run-all -s clean parcel:build cname",
     "dev": "npm-run-all -s clean -p style parcel:serve"
   },
   "dependencies": {
