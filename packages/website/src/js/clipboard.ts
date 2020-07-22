@@ -1,16 +1,18 @@
 import { $password, $toast } from './elements'
 
-export const addClipboard = () => {
+export const addClipboard = async () => {
   // @ts-ignore
-  navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
+  const result = await navigator.permissions.query({ name: 'clipboard-write' })
+
+  $password.addEventListener('click', async () => {
     if (result.state == 'granted' || result.state == 'prompt') {
-      $password.addEventListener('click', async () => {
-        await navigator.clipboard.writeText($password.innerText)
-        $toast.classList.add('fade-in')
-        $toast.addEventListener('animationend', () => {
-          $toast.classList.remove('fade-in')
-        })
+      await navigator.clipboard.writeText($password.value)
+      $toast.style.animation = 'fadein 4s'
+      $toast.addEventListener('animationend', () => {
+        $toast.style.animation = ''
       })
+    } else {
+      $password.select()
     }
   })
 }

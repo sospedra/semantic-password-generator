@@ -5,11 +5,12 @@
   "scripts": {
     "clean": "rm -rf dist .cache",
     "cname": "echo 'spg.sospedra.me' > dist/CNAME",
-    "style": "postcss --watch src/css/style.tailwind.css --output src/css/style.css",
+    "style:build": "postcss src/css/style.tailwind.css --output src/css/style.css",
+    "style:dev": "yarn style:build --watch",
     "parcel:build": "parcel build src/index.html --public-url ./",
-    "parcel:serve": "parcel src/index.html --open",
-    "build": "npm-run-all -s clean parcel:build cname",
-    "dev": "npm-run-all -s clean -p style parcel:serve"
+    "parcel:dev": "parcel src/index.html --open",
+    "build": "npm-run-all -s clean style:build parcel:build cname",
+    "dev": "npm-run-all -s clean -p style:dev parcel:dev"
   },
   "dependencies": {
     "semantic-password-generator": "^6.2.0",

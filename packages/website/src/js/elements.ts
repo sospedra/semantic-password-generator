@@ -6,6 +6,6 @@ export const $case = document.querySelector<HTMLInputElement>('#js-case')
 export const $leet = document.querySelector<HTMLInputElement>('#js-leet')
 export const $random = document.querySelector<HTMLInputElement>('#js-random')
 export const $symbols = document.querySelector<HTMLInputElement>('#js-symbols')
-export const $password = document.querySelector<HTMLButtonElement>(
+export const $password = document.querySelector<HTMLInputElement>(
   '#js-password',
 )

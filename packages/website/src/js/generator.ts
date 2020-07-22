@@ -31,7 +31,7 @@ export const addGenerator = async () => {
     })
 
     updateHint(password)
-    $password.innerText = password
+    $password.value = password
   }
 
   update()
