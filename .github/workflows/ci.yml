@@ -1,9 +1,8 @@
-name: CI
+name: ci&cd
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
@@ -27,7 +26,7 @@ jobs:
           CI: true
 
       - name: Bootstrap
-        run: yarn lerna bootstrap
+        run: yarn bootstrap
         env:
           CI: true
 
@@ -38,5 +37,14 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          CI: true
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: contains(github.ref, "master")
+    steps:
+      - name: Deploy
+        run: yarn deploy
         env:
           CI: true
