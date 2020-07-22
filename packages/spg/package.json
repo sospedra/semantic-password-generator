@@ -1,6 +1,6 @@
 {
   "name": "semantic-password-generator",
-  "version": "6.0.1-alpha.0",
+  "version": "6.0.1",
   "description": "Generate secure password that you can easly read",
   "repository": "https://github.com/sospedra/semantic-password-generator.git",
   "author": "Ruben Sospedra",
