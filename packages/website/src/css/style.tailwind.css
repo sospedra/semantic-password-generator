@@ -1,0 +1,22 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './slider.css';
+@import './fade.css';
+
+body {
+  background: url('../assets/background.svg') no-repeat 50%;
+}
+a {
+  @apply text-blue-600;
+}
+a:visited {
+  @apply text-purple-600;
+}
+button:focus,
+input:focus {
+  outline: none;
+}
+input[type='checkbox'] {
+  @apply align-middle;
+}

@@ -1,0 +1,33 @@
+name: cd
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+          registry-url: https://registry.npmjs.org'
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            nodeModules-
+      - name: Setup
+        run: yarn install --frozen-lockfile && yarn bootstrap && yarn build
+        env:
+          CI: true
+      - name: Deploy
+        run: yarn deploy
+        env:
+          CI: true
+      - name: Publish
+        run: yarn publish
+        env:
+          CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,27 @@
+{
+  "name": "spg-website",
+  "version": "6.0.1-alpha.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf dist .cache",
+    "style": "postcss --watch src/css/style.tailwind.css --output src/css/style.css",
+    "parcel:build": "parcel build src/index.html --public-url ./",
+    "parcel:serve": "parcel src/index.html --open",
+    "build": "npm-run-all -s clean parcel:build",
+    "dev": "npm-run-all -s clean -p style parcel:serve",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
+  },
+  "dependencies": {
+    "semantic-password-generator": "^6.0.1-alpha.0",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.0.2",
+    "parcel-bundler": "^1.12.4",
+    "postcss-cli": "^7.1.0",
+    "postcss-import": "^12.0.1",
+    "typescript": "^3.8.3"
+  }
+}

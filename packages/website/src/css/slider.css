@@ -1,0 +1,40 @@
+.slider {
+  @apply w-full rounded cursor-pointer;
+  height: 0.33rem;
+  appearance: none;
+  background: linear-gradient(
+    90deg,
+    theme('colors.red.700') 0%,
+    theme('colors.orange.600') 25%,
+    theme('colors.yellow.500') 50%,
+    theme('colors.green.400') 75%,
+    theme('colors.green.700')
+  );
+}
+
+.thumb {
+  @apply h-4 w-4 rounded-full bg-white;
+  cursor: grab;
+  appearance: none;
+  border: 0.1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px black;
+}
+
+.slider::-webkit-slider-thumb {
+  @apply thumb;
+}
+.slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+.slider::-moz-range-thumb {
+  @apply thumb;
+}
+.slider::-moz-range-thumb:active {
+  cursor: grabbing;
+}
+.slider::-ms-thumb {
+  @apply thumb;
+}
+.slider::-ms-thumb:active {
+  cursor: grabbing;
+}

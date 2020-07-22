@@ -1,0 +1,25 @@
+.to-fade {
+  @apply absolute opacity-0 text-center bg-gray-800 px-2 py-1 rounded text-white mt-16 text-sm;
+  transform: translate(-50%, 0);
+  left: 50%;
+}
+
+.fade-in {
+  animation: fadein 4s ease-in-out;
+}
+
+@keyframes fadein {
+  0% {
+    @apply opacity-0;
+    transform: translate(-50%, 0);
+  }
+  10%,
+  90% {
+    @apply opacity-100;
+    transform: translate(-50%, -2rem);
+  }
+  100% {
+    @apply opacity-0;
+    transform: translate(-50%, -2rem);
+  }
+}

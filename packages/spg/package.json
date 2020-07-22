@@ -1,0 +1,39 @@
+{
+  "name": "semantic-password-generator",
+  "version": "6.0.1-alpha.0",
+  "description": "Generate secure password that you can easly read",
+  "repository": "https://github.com/sospedra/semantic-password-generator.git",
+  "author": "Ruben Sospedra",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "dependencies": {
+    "compromise": "^13.3.1",
+    "ent": "^2.2.0",
+    "lodash.identity": "^3.0.0",
+    "lodash.isnumber": "^3.0.3",
+    "lodash.random": "^3.2.0",
+    "unfetch": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/ent": "^2.2.2",
+    "@types/jest": "^26.0.5",
+    "@types/lodash.identity": "^3.0.6",
+    "@types/lodash.isnumber": "^3.0.6",
+    "@types/lodash.random": "^3.2.6",
+    "babel-jest": "^26.1.0",
+    "jest": "^26.1.0",
+    "microbundle": "^0.12.3",
+    "prettier": "2.0.5"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "test": "jest"
+  }
+}

@@ -1,39 +1,19 @@
 {
-  "name": "semantic-password-generator",
-  "version": "5.1.0",
-  "description": "Generate secure password that you can easly read",
-  "main": "lib/index.js",
-  "author": "Ruben Sospedra",
-  "license": "MIT",
-  "dependencies": {
-    "compromise": "^10.5.0",
-    "ent": "^2.2.0",
-    "lodash.identity": "^3.0.0",
-    "lodash.isnumber": "^3.0.3",
-    "lodash.random": "^3.2.0"
-  },
+  "name": "spg",
+  "private": true,
   "devDependencies": {
-    "ava": "^0.19.1",
-    "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.5.2",
-    "nyc": "^11.0.2",
-    "standard": "^10.0.2"
+    "lerna": "^3.22.1"
   },
-  "ava": {
-    "source": [
-      "src",
-      "!demo"
-    ],
-    "files": [
-      "tests",
-      "!demo/**/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "babel src -d lib",
-    "format": "npm run test:style -- --fix",
-    "test:style": "standard 'src/**/*.js'",
-    "test:unit": "nyc ava",
-    "test": "npm run test:style && npm run test:unit"
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "dev": "lerna run --parallel dev",
+    "test": "lerna run --parallel test",
+    "deploy": "lerna run --parallel deploy",
+    "publish": "lerna publish from-package --yes",
+    "version": "lerna version"
   }
 }
