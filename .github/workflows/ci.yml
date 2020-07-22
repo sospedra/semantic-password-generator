@@ -31,6 +31,4 @@ jobs:
         run: yarn build
       - name: Deploy npm
         if: github.ref == 'refs/heads/master'
-        run: yarn deploy:npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc && yarn deploy:npm
