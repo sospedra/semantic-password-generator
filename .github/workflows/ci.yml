@@ -30,7 +30,7 @@ jobs:
         run: yarn build
       - name: Deploy web
         if: github.ref == 'refs/heads/master'
-        run: yarn deploy:web
+        run: git pull && yarn deploy:web
       - name: Deploy npm
         if: github.ref == 'refs/heads/master'
         run: yarn deploy:npm
