@@ -3,3 +3,15 @@
 exports[`generator takes one arg as number as length 1`] = `"this.is.my.long.sentence.to.try.and.to.check.the.length"`;
 
 exports[`generator transforms with default args when not provided 1`] = `"this.is.my.long.sentence.to.try"`;
+
+exports[`generator transforms with default args when not provided 2`] = `"a.bit.more.short.but.medium.long"`;
+
+exports[`generator transforms with default args when not provided 3`] = `"super.short"`;
+
+exports[`generator transforms with default args when not provided 4`] = `"itsn't.a.thing.we'll.understand"`;
+
+exports[`generator transforms with default args when not provided 5`] = `"<p><b>Björk.Guðmundsdóttir</b>"`;
+
+exports[`generator transforms with default args when not provided 6`] = `"<p><b>Rapid.Evolution</b>"`;
+
+exports[`generator transforms with default args when not provided 7`] = `"Björk.Guðmundsdóttir.OTF.(/bjɜːrk/"`;

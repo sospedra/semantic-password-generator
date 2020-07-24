@@ -2318,6 +2318,13 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha512-7+2BITlgjgDhH0vvwZU/HZJVyk+2XUlvxXe8dFMedNX/aMkaOq++rMAFXc0tM7ij15QaWlbdQASBR9dihi+bDQ==
 
+"@types/lodash.deburr@^4.1.6":
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.deburr/-/lodash.deburr-4.1.6.tgz#18b3bebd941c4b622cd2278fed18017dfc32ce3f"
+  integrity sha512-LsdZUIBM/YDQ4+w4/PSq2KTRRuCmBic48vzzKD7PHw1uIsKMWizwDtk0fMdqYmo9/iLMhHiFh2ol0eqhjT0VTg==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.identity@^3.0.6":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.identity/-/lodash.identity-3.0.6.tgz#55e1858a9e51c9963c63190ac88eb427c8b5015b"
@@ -4861,13 +4868,6 @@ compress-commons@^1.2.0:
     normalize-path "^2.0.0"
     readable-stream "^2.0.0"
 
-compromise@^13.3.1:
-  version "13.3.1"
-  resolved "https://registry.yarnpkg.com/compromise/-/compromise-13.3.1.tgz#666a7fb3783dddcb1d4e62705edb64fdcfd7bba3"
-  integrity sha512-GcnPmjJ0HKonf2q2VRCBNFTDG/MQOAa1URH+t7FLN9KeJY68orBh7OeAznXo7g5Mgz2bpgqRTp9jQoYreYRo/Q==
-  dependencies:
-    efrt-unpack "2.2.0"
-
 concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
@@ -5982,11 +5982,6 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-efrt-unpack@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/efrt-unpack/-/efrt-unpack-2.2.0.tgz#b05dbec0fb8cb346a27840e00c969df9c72fee52"
-  integrity sha512-9xUSSj7qcUxz+0r4X3+bwUNttEfGfK5AH+LVa1aTpqdAfrN5VhROYCfcF+up4hp5OL7IUKcZJJrzAGipQRDoiQ==
-
 electron-to-chromium@^1.3.47:
   version "1.3.504"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.504.tgz#54d6288202f8453053c006eb862e2e3b7bc867a5"
@@ -6024,6 +6019,11 @@ emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+
+emoji-regex@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.0.0.tgz#48a2309cc8a1d2e9d23bc6a67c39b63032e76ea4"
+  integrity sha512-6p1NII1Vm62wni/VR/cUMauVQoxmLVb9csqQlvLz+hO2gk8U2UYDfXHQSUYIBKmZwAKz867IDqG7B+u0mj+M6w==
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -6069,11 +6069,6 @@ enhanced-resolve@^4.1.0, enhanced-resolve@^4.1.1:
     graceful-fs "^4.1.2"
     memory-fs "^0.5.0"
     tapable "^1.0.0"
-
-ent@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ent/-/ent-2.2.0.tgz#e964219325a21d05f44466a2f686ed6ce5f5dd1d"
-  integrity sha1-6WQhkyWiHQX0RGai9obtbOX13R0=
 
 entities@^1.1.1, entities@^1.1.2, entities@~1.1.1:
   version "1.1.2"
@@ -9336,6 +9331,11 @@ lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
+lodash.deburr@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/lodash.deburr/-/lodash.deburr-4.1.0.tgz#ddb1bbb3ef07458c0177ba07de14422cb033ff9b"
+  integrity sha1-3bG7s+8HRYwBd7oH3hRCLLAz/5s=
 
 lodash.get@^4.4.2:
   version "4.4.2"
@@ -14897,6 +14897,46 @@ windows-release@^3.1.0:
   integrity sha512-Pngk/RDCaI/DkuHPlGTdIkDiTAnAkyMjoQMZqRsxydNl1qGXNIoZrB7RK8g53F2tEgQBMqQJHQdYZuQEEAu54A==
   dependencies:
     execa "^1.0.0"
+
+wink-distance@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/wink-distance/-/wink-distance-2.0.0.tgz#3ac47cb3819c56bb1be04d23ddd21e06471bf688"
+  integrity sha512-xJn1rbT/I23q0CZjyvQzzax2XAnCWsOcxowKJheiDflYawF7vG1uN1mDeLy0gmgw3IqRwg0HX1I/9NUW+purqg==
+  dependencies:
+    wink-helpers "^2.0.0"
+    wink-jaro-distance "^2.0.0"
+
+wink-helpers@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/wink-helpers/-/wink-helpers-2.0.0.tgz#0aec1a2bddd0adcf9e6deb3bf7fa70c7e92dbe5c"
+  integrity sha512-I/ZzXrHcNRXuoeFJmp2vMVqDI6UCK02Tds1WP4kSGAmx520gjL1BObVzF7d2ps24tyHIly9ngdB2jwhlFUjPvg==
+
+wink-jaro-distance@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/wink-jaro-distance/-/wink-jaro-distance-2.0.0.tgz#96bc3fd69ec5dd48ee74055217f0dcd313148049"
+  integrity sha512-9bcUaXCi9N8iYpGWbFkf83OsBkg17r4hEyxusEzl+nnReLRPqxhB9YNeRn3g54SYnVRNXP029lY3HDsbdxTAuA==
+
+wink-nlp-utils@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/wink-nlp-utils/-/wink-nlp-utils-2.0.6.tgz#012445730e43ceca5105b8e52aabca8e3f8cd332"
+  integrity sha512-Dpx7CsAwdZn+Bje+yoLeHQere+6ogdvWclxHJCVFZpnPaVbnLIE+RoPcWnVuzAWBhmHz2V0wxBu08YWyLnZESw==
+  dependencies:
+    wink-distance "^2.0.0"
+    wink-helpers "^2.0.0"
+    wink-porter2-stemmer "^2.0.1"
+    wink-tokenizer "^5.2.1"
+
+wink-porter2-stemmer@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/wink-porter2-stemmer/-/wink-porter2-stemmer-2.0.1.tgz#f7680e584e2b9b4c44766642325671662e98f44a"
+  integrity sha512-0g+RkkqhRXFmSpJQStVXW5N/WsshWpJXsoDRW7DwVkGI2uDT6IBCoq3xdH5p6IHLaC6ygk7RWUsUx4alKxoagQ==
+
+wink-tokenizer@^5.2.1:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/wink-tokenizer/-/wink-tokenizer-5.2.3.tgz#7ec5d29c83e3004497299b06076e3e433c60ecc1"
+  integrity sha512-pMvnjcGC9pMToomdB6FfYzv7r/6r+B75Ip4QxvmtGUSO+THq/27y81Q9zdOhQSl14TJidjtSn0pZIw4+OKkiSg==
+  dependencies:
+    emoji-regex "^9.0.0"
 
 winreg@0.0.12:
   version "0.0.12"

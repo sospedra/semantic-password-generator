@@ -2,7 +2,6 @@ import random from 'lodash.random'
 import isNumber from 'lodash.isnumber'
 import identity from 'lodash.identity'
 import * as password from './password'
-import transformNormalize from './transform/normalize'
 import transformLength from './transform/length'
 import transformLeet from './transform/leet'
 import transformCase from './transform/case'
@@ -38,7 +37,6 @@ export default function createGenerator(sentences = DEFAULT_SENTENCES) {
     if (!base) return null
 
     return [
-      transformNormalize(),
       transformLength(length),
       options.leet && transformLeet(),
       options.case && transformCase(),
