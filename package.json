@@ -16,5 +16,6 @@
     "deploy:npm": "lerna publish from-package --yes",
     "deploy:extension": "lerna run --scope extension deploy",
     "bump": "lerna version --conventional-commits --yes"
-  }
+  },
+  "version": "0.0.0"
 }
