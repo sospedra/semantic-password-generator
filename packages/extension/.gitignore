@@ -2,3 +2,4 @@
 extension
 dist/
 .awcache
+web-ext-artifacts

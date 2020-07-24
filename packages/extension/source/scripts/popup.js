@@ -9,18 +9,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const $random = document.querySelector('#js-random')
   const $symbols = document.querySelector('#js-symbols')
   const $password = document.querySelector('#js-password')
-  const permission = await navigator.permissions.query({
-    name: 'clipboard-write',
-  })
   let generator = await spg()
 
   $password.addEventListener('click', async () => {
-    if (permission.state == 'granted' || permission.state == 'prompt') {
-      await navigator.clipboard.writeText($password.value)
+    $password.select()
+
+    if (document.queryCommandSupported('copy')) {
+      document.execCommand('copy')
       $toast.style.display = 'block'
       setTimeout(() => ($toast.style.display = 'none'), 2000)
-    } else {
-      $password.select()
     }
   })
 
