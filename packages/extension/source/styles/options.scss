@@ -1,0 +1,39 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  @apply h-screen w-full flex flex-col items-center justify-center text-gray-900 bg-gray-200;
+}
+
+a {
+  @apply text-blue-600;
+}
+a:visited {
+  @apply text-purple-600;
+}
+
+.icon {
+  @apply subpixel-antialiased p-4 -mt-16 font-mono;
+  font-size: 8rem;
+  color: #800d79;
+  transform: rotate(11deg);
+  cursor: cell;
+}
+
+.icon:hover {
+  animation: wiggle 2s infinite alternate-reverse ease-in-out;
+}
+
+p {
+  @apply text-4xl text-center p-4;
+}
+
+@keyframes wiggle {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(11deg);
+  }
+}
