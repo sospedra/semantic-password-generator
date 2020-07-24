@@ -1,6 +1,6 @@
 {
   "name": "spg-extension",
-  "version": "1.0.0",
+  "version": "6.2.0",
   "description": "Cross-browser extension for SPG",
   "private": true,
   "scripts": {
@@ -15,18 +15,18 @@
     "deploy": "npm-run-all -s -p deploy:amo deploy:cws"
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.2",
-    "chrome-webstore-upload-cli": "^1.2.0",
     "semantic-password-generator": "*",
-    "tailwindcss": "^1.4.6",
-    "web-ext-submit": "^4.3.0"
+    "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.10.2",
     "@babel/core": "^7.10.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
     "@babel/plugin-transform-destructuring": "^7.10.1",
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
+    "chrome-webstore-upload-cli": "^1.2.0",
+    "web-ext-submit": "^4.3.0",
     "autoprefixer": "^9.8.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
