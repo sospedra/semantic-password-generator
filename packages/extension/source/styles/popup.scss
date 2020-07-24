@@ -1,0 +1,17 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './slider.scss';
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+ul li {
+  @apply inline-flex items-center cursor-pointer;
+}
+
+ul li label {
+  padding-left: 0.15rem;
+}

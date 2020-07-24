@@ -1,0 +1,5 @@
+## Build directory
+extension
+dist/
+.awcache
+web-ext-artifacts

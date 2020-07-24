@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup</title>
+    <link rel="stylesheet" href="css/popup.css" />
+  </head>
+
+  <body>
+    <div class="relative w-64 p-2">
+      <input
+        id="js-password"
+        class="w-full p-2 text-center truncate border border-gray-600 rounded cursor-pointer select-text"
+        placeholder='loading . . .'
+        value=''
+        readonly
+      >
+      </input>
+      
+      <aside id="js-toast" class="absolute hidden text-xs italic">
+        Copied to your clipboard!
+      </aside>
+
+      <div class="flex flex-row">
+        <input
+        id="js-slider"
+        class="slider"
+        type="range"
+        min="8"
+        max="34"
+        value="24"
+      />
+      <button
+          id="js-renew"
+          class="px-2 m-2 mr-0 bg-gray-300 border border-gray-600 rounded active:bg-gray-400"
+        >
+          Renew
+        </button>
+      </div>
+
+      <ul
+        class="flex flex-row flex-wrap justify-between w-full text-sm"
+      >
+        <li>
+          <input type="checkbox" id="js-case" />
+          <label for="js-case">case</label>
+        </li>
+        <li>
+          <input type="checkbox" id="js-leet" />
+          <label for="js-leet">leet</label>
+        </li>
+        <li>
+          <input type="checkbox" id="js-random" />
+          <label for="js-random">random</label>
+        </li>
+        <li>
+          <input type="checkbox" id="js-symbols" />
+          <label for="js-symbols">symbols</label>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

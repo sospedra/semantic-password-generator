@@ -35,3 +35,6 @@ jobs:
       - name: Deploy npm
         if: github.ref == 'refs/heads/master'
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc && yarn deploy:npm
+      - name: Deploy extension
+        if: github.ref == 'refs/heads/master'
+        run: yarn deploy:extension
