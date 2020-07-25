@@ -1,12 +1,10 @@
 import * as password from '../src/password'
-
-const longest = 'this is my long sentence to try and to check the length thiny'
-const stubs = {
-  sentences: [longest, 'a bit more short but medium long', 'super short'],
-}
+import stubs from './stubs'
 
 test('password returns max length given some sentences', () => {
-  expect(password.getMaxLength(stubs.sentences)).toBe(longest.length)
+  expect(password.getMaxLength(Array.from(stubs.values()))).toBe(
+    stubs.get('html').length,
+  )
 })
 
 test('password return input or default value as min length', () => {

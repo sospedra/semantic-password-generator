@@ -1,8 +1,5 @@
 import generator from '../src/generator'
-
-const stubs = {
-  sentences: ['this is my long sentence to try and to check the length thiny'],
-}
+import stubs from './stubs'
 
 test('generator is a function which returns null when no init', () => {
   expect(typeof generator).toBe('function')
@@ -10,9 +7,11 @@ test('generator is a function which returns null when no init', () => {
 })
 
 test('generator transforms with default args when not provided', () => {
-  expect(generator(stubs.sentences)()).toMatchSnapshot()
+  stubs.forEach((sentence) => {
+    expect(generator([sentence])()).toMatchSnapshot()
+  })
 })
 
 test('generator takes one arg as number as length', () => {
-  expect(generator(stubs.sentences)(40)).toMatchSnapshot()
+  expect(generator([stubs.get('large')])(40)).toMatchSnapshot()
 })
