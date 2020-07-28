@@ -1,6 +1,6 @@
 {
   "name": "spg-website",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "private": true,
   "scripts": {
     "clean": "rm -rf dist .cache",
@@ -13,7 +13,7 @@
     "dev": "npm-run-all -s clean -p style:dev parcel:dev"
   },
   "dependencies": {
-    "semantic-password-generator": "^6.2.0",
+    "semantic-password-generator": "^6.4.0",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {

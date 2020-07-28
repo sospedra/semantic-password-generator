@@ -1,6 +1,6 @@
 {
   "name": "spg-extension",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "description": "Cross-browser extension for SPG",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "deploy": "npm-run-all -s -p deploy:amo deploy:cws"
   },
   "dependencies": {
-    "semantic-password-generator": "*",
+    "semantic-password-generator": "^6.4.0",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
