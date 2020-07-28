@@ -1,6 +1,6 @@
 {
   "name": "spg-extension",
-  "version": "6.4.0",
+  "version": "6.4.1",
   "description": "Cross-browser extension for SPG",
   "private": true,
   "scripts": {
