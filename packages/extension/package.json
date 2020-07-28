@@ -12,7 +12,8 @@
     "build": "npm-run-all -s -p build:chrome build:firefox",
     "deploy:amo": "env-cmd web-ext-submit --source-dir extension/firefox",
     "deploy:cws": "env-cmd webstore upload --source extension/chrome --auto-publish",
-    "deploy": "npm-run-all -s -p deploy:amo deploy:cws"
+    "deploy:setup": "./internals/setup.sh",
+    "deploy": "npm-run-all -s -p deploy:setup deploy:amo deploy:cws"
   },
   "dependencies": {
     "semantic-password-generator": "^6.4.0",
