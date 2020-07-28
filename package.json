@@ -12,9 +12,9 @@
     "build": "lerna run build",
     "dev": "lerna run --parallel dev",
     "test": "lerna run --parallel test",
-    "deploy:web": "git push -d origin gh-pages && git subtree push --prefix packages/website/dist origin gh-pages",
+    "deploy:web": "lerna run --scope spg-website deploy",
     "deploy:npm": "lerna publish from-package --yes",
-    "deploy:extension": "lerna run --scope extension deploy",
+    "deploy:extension": "lerna run --scope spg-extension deploy",
     "bump": "lerna version --conventional-commits --yes"
   },
   "version": "0.0.0"
