@@ -9,7 +9,7 @@
     "dev": "yarn dev:chrome",
     "build:chrome": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=chrome webpack",
     "build:firefox": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=firefox webpack",
-    "build": "npm-run-all -s -p build:chrome build:firefox build:opera",
+    "build": "npm-run-all -s -p build:chrome build:firefox",
     "deploy:amo": "env-cmd web-ext-submit --source-dir extension/firefox",
     "deploy:cws": "env-cmd webstore upload --source extension/chrome --auto-publish",
     "deploy": "npm-run-all -s -p deploy:amo deploy:cws"
