@@ -1,1 +1,95 @@
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#68D391"><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><link rel="shortcut icon" href="favicon.d850ca22.ico"><link rel="stylesheet" href="style.0b7a4a47.css"><title>Secure passwords that humans can read</title></head><body> <div class="flex flex-col h-full max-w-2xl m-auto"> <main class="flex flex-col items-center justify-center flex-1"> <h1 class="m-6 text-3xl font-bold text-center border-t-4 border-current"> Secure passwords that humans can read </h1> <div class="relative w-11/12 sm:w-3/5"> <div class="flex flex-row bg-white border border-gray-600 rounded"> <input id="js-password" class="flex-1 w-full p-3 text-center truncate rounded-l cursor-pointer select-text" placeholder="loading . . ." value="" readonly>  <button id="js-renew" class="px-3 bg-gray-300 border-l border-gray-600 rounded-r active:bg-gray-400"> RENEW </button> </div> <div> <p id="js-hint" class="w-full py-4 font-bold text-center uppercase"> good </p> <input id="js-slider" class="slider" type="range" min="8" max="34" value="24"> </div> <ul class="flex flex-row justify-around w-full px-4 py-2 mt-10 text-sm bg-white border border-gray-600 rounded"> <li> <input type="checkbox" id="js-case"> <label for="js-case">case</label> </li> <li> <input type="checkbox" id="js-leet"> <label for="js-leet">leet</label> </li> <li> <input type="checkbox" id="js-random"> <label for="js-random">random</label> </li> <li> <input type="checkbox" id="js-symbols"> <label for="js-symbols">symbols</label> </li> </ul> <aside id="js-toast" class="to-fade"> Copied to your clipboard! </aside> </div> </main> <footer class="py-6 font-mono text-sm text-center"> <p> <a href="https://www.npmjs.com/package/semantic-password-generator">npm lib</a> // <a href="https://github.com/sospedra/semantic-password-generator">source code</a> </p> <p> hand-crafted with 💜 by <a href="https://sospedra.me">@sospedra</a> </p> </footer> </div> <script async src="js.adae22c9.js"></script> </body></html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#68D391">
+    <meta name="description" content="Secure passwords that humans can read 🗝">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon.c67a6883.ico">
+    <link rel="stylesheet" href="/style.78032849.css">
+    <link rel="preload" href="/background.d5af76e3.svg" as="image">
+    <link rel="preload" href="/firefox.121f1549.svg" as="image">
+    <link rel="preload" href="/chrome.19869fa7.svg" as="image">
+
+    <title>Secure passwords that humans can read</title>
+  <script src="/style.78032849.js"></script></head>
+
+  <body>
+    <div class="flex flex-col max-w-2xl min-h-full m-auto">
+      <main class="flex flex-col items-center justify-center flex-1">
+        <h1 class="m-6 text-3xl font-bold text-center border-t-4 border-current">
+          Secure passwords that humans can read
+        </h1>
+
+        <div class="relative w-11/12 sm:w-3/5">
+          <div class="flex flex-row bg-white border border-gray-600 rounded">
+            <input id="js-password" class="flex-1 w-full p-3 text-center truncate rounded-l cursor-pointer select-text" placeholder="loading . . ." value="" readonly="">
+            
+            <button id="js-renew" class="px-3 bg-gray-300 border-l border-gray-600 rounded-r active:bg-gray-400">
+              RENEW
+            </button>
+          </div>
+
+          <div>
+            <p id="js-hint" class="w-full py-4 font-bold text-center uppercase">
+              good
+            </p>
+            <input id="js-slider" class="slider" type="range" min="8" max="34" value="24">
+          </div>
+
+          <ul class="flex flex-row justify-around w-full p-2 mt-10 text-sm bg-white border border-gray-600 rounded">
+            <li>
+              <input type="checkbox" id="js-case">
+              <label for="js-case">case</label>
+            </li>
+            <li>
+              <input type="checkbox" id="js-leet">
+              <label for="js-leet">leet</label>
+            </li>
+            <li>
+              <input type="checkbox" id="js-random">
+              <label for="js-random">random</label>
+            </li>
+            <li>
+              <input type="checkbox" id="js-symbols">
+              <label for="js-symbols">symbols</label>
+            </li>
+          </ul>
+        </div>
+
+          <aside id="js-toast" class="to-fade">
+            Copied to your clipboard!
+          </aside>
+      </main>
+
+      <footer class="py-6">
+        <div class="flex flex-row justify-center p-4 pb-12">
+          <a class="flex flex-row items-center p-1 mx-2 bg-white border border-gray-400 rounded shadow" href="https://addons.mozilla.org/firefox/addon/semantic-password-generator/" target="_blank" rel="noreferrer noopener">
+            <img src="/firefox.121f1549.svg" class="w-8 h-8 mr-2" alt="firefox logo">
+            <span class="flex-wrap flex-1">Get the <nobr>Add-on</nobr></span>
+          </a>
+          <a class="flex flex-row items-center p-1 mx-2 bg-white border border-gray-400 rounded shadow" href="https://chrome.google.com/webstore/detail/semantic-password-generat/jnihpommmhnofegpepjdbckgkhhjooln" target="_blank" rel="noreferrer noopener">
+            <img src="/chrome.19869fa7.svg" class="w-8 h-8 pr-1 mr-1" alt="chrome logo">
+            <span class="flex-wrap flex-1">Get the Extension</span>
+          </a>
+        </div>
+      
+      <div class="font-mono text-sm text-center">
+        <p>
+          <a href="https://www.npmjs.com/package/semantic-password-generator">npm lib</a>
+          //
+          <a href="https://github.com/sospedra/semantic-password-generator">github</a>
+        </p>
+        <p>
+          hand-crafted with 💜 by
+          <a href="https://sospedra.me">@sospedra</a>
+        </p>
+      </div>
+      </footer>
+    </div>
+
+    <script async="" src="/js.52877fb3.js"></script>
+  </body>
+</html>

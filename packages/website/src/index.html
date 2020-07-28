@@ -13,12 +13,14 @@
     <link rel="shortcut icon" href="assets/icon/favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preload" href="assets/background.svg" as="image">
+    <link rel="preload" href="assets/firefox.svg" as="image">
+    <link rel="preload" href="assets/chrome.svg" as="image">
 
     <title>Secure passwords that humans can read</title>
   </head>
 
   <body>
-    <div class="flex flex-col h-full max-w-2xl m-auto">
+    <div class="flex flex-col max-w-2xl min-h-full m-auto">
       <main class="flex flex-col items-center justify-center flex-1">
         <h1
           class="m-6 text-3xl font-bold text-center border-t-4 border-current"
@@ -59,7 +61,7 @@
           </div>
 
           <ul
-            class="flex flex-row justify-around w-full px-4 py-2 mt-10 text-sm bg-white border border-gray-600 rounded"
+            class="flex flex-row justify-around w-full p-2 mt-10 text-sm bg-white border border-gray-600 rounded"
           >
             <li>
               <input type="checkbox" id="js-case" />
@@ -78,27 +80,50 @@
               <label for="js-symbols">symbols</label>
             </li>
           </ul>
+        </div>
 
           <aside id="js-toast" class="to-fade">
             Copied to your clipboard!
           </aside>
-        </div>
       </main>
 
-      <footer class="py-6 font-mono text-sm text-center">
+      <footer class="py-6">
+        <div class="flex flex-row justify-center p-4 pb-12">
+          <a
+            class="flex flex-row items-center p-1 mx-2 bg-white border border-gray-400 rounded shadow"
+            href="https://addons.mozilla.org/firefox/addon/semantic-password-generator/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <img src="assets/firefox.svg" class="w-8 h-8 mr-2" alt="firefox logo"></img>
+            <span class="flex-wrap flex-1">Get the <nobr>Add-on</nobr></span>
+          </a>
+          <a
+            class="flex flex-row items-center p-1 mx-2 bg-white border border-gray-400 rounded shadow"
+            href="https://chrome.google.com/webstore/detail/semantic-password-generat/jnihpommmhnofegpepjdbckgkhhjooln"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <img src="assets/chrome.svg" class="w-8 h-8 pr-1 mr-1" alt="chrome logo"></img>
+            <span class="flex-wrap flex-1">Get the Extension</span>
+          </a>
+        </div>
+      
+      <div class="font-mono text-sm text-center">
         <p>
           <a href="https://www.npmjs.com/package/semantic-password-generator"
             >npm lib</a
           >
           //
           <a href="https://github.com/sospedra/semantic-password-generator"
-            >source code</a
+            >github</a
           >
         </p>
         <p>
           hand-crafted with 💜 by
           <a href="https://sospedra.me">@sospedra</a>
         </p>
+      </div>
       </footer>
     </div>
 
