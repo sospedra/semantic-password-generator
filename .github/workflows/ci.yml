@@ -29,22 +29,19 @@ jobs:
       - name: Build
         if: github.ref == 'refs/heads/master'
         run: yarn build
-
       - name: Deploy web
         if: github.ref == 'refs/heads/master'
         run: yarn deploy:web
       - name: Clean web
         if: github.ref == 'refs/heads/master'
         run: git checkout packages/website && git clean -df packages/website
-      
       - name: Deploy npm
         if: github.ref == 'refs/heads/master'
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc && yarn deploy:npm
       - name: Clean npm
         if: github.ref == 'refs/heads/master'
         run: git checkout packages/spg && git clean -df packages/spg
-      
-        - name: Deploy extension
+      - name: Deploy extension
         if: github.ref == 'refs/heads/master'
         run: yarn deploy:extension
         env:
