@@ -556,7 +556,7 @@ function request() {
           pages = _a.sent().query.pages;
           return [2
           /*return*/
-          , pages[Object.keys[0]].extract];
+          , pages[Object.keys(pages)[0]].extract];
       }
     });
   });
@@ -7214,7 +7214,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57446" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60005" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

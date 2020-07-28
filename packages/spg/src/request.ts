@@ -33,5 +33,5 @@ export default async function request() {
     query: { pages },
   }: WikipediaQuery = await response.json()
 
-  return pages[Object.keys[0]].extract
+  return pages[Object.keys(pages)[0]].extract
 }
