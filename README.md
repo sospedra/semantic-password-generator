@@ -1,7 +1,6 @@
 # semantic-password-generator
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sospedra/semantic-password-generator/ci)
-[![dependencies Status](https://david-dm.org/sospedra/semantic-password-generator/status.svg)](https://david-dm.org/sospedra/semantic-password-generator)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/semantic-password-generator)](https://bundlephobia.com/result?p=semantic-password-generator)
 ![npm type definitions](https://img.shields.io/npm/types/typescript)
 
@@ -10,7 +9,6 @@ Secure passwords that humans can read 🗝
 ### Install
 
 ```
-// pick up your style!
 yarn add semantic-password-generator
 ```
 
