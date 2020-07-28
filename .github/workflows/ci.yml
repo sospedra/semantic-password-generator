@@ -31,16 +31,22 @@ jobs:
         run: yarn build
       - name: Deploy web
         if: github.ref == 'refs/heads/master'
-        run: yarn deploy:web
+        run: |
+          git remote set-url origin https://git:${{ secrets.DEPLOY_GITHUB_TOKEN }}@github.com/sospedra/semantic-password-generator.git
+          yarn deploy:web
       - name: Clean web
         if: github.ref == 'refs/heads/master'
-        run: git checkout packages/website && git clean -df packages/website
+        run: |
+          git checkout packages/website
+          git clean -df packages/website
       - name: Deploy npm
         if: github.ref == 'refs/heads/master'
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc && yarn deploy:npm
       - name: Clean npm
         if: github.ref == 'refs/heads/master'
-        run: git checkout packages/spg && git clean -df packages/spg
+        run: |
+          git checkout packages/spg
+          git clean -df packages/spg
       - name: Deploy extension
         if: github.ref == 'refs/heads/master'
         run: yarn deploy:extension
